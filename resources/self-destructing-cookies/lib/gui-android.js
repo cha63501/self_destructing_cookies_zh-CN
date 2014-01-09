@@ -56,9 +56,9 @@ exports.setup = function(options) {
   var win = windowUtils.windows();
   for (var w in win) {
     if (windowUtils.isBrowser(win[w])) {
-      whitelistMenuIDs.push(win[w].NativeWindow.menu.add("Cookie Whitelist", null, handleWhitelistClicked));
-      disarmMenuIDs.push(win[w].NativeWindow.menu.add("Suspend/Resume SDC", null, handleDisarmClicked));
-      undeleteMenuIDs.push(win[w].NativeWindow.menu.add("Undelete & Suspend", null, handleUndeleteClicked));
+      whitelistMenuIDs.push(win[w].NativeWindow.menu.add("Cookie 白名单", null, handleWhitelistClicked));
+      disarmMenuIDs.push(win[w].NativeWindow.menu.add("暂停/恢复 SDC", null, handleDisarmClicked));
+      undeleteMenuIDs.push(win[w].NativeWindow.menu.add("撤消删除 & 暂停", null, handleUndeleteClicked));
       windows.push(win[w]);
     }
   }
@@ -81,7 +81,7 @@ exports.teardown = function() {
 }
 
 exports.editWhitelist = function() {
-  toast("1. Open site to be whitelisted in Firefox  2. Open main menu (top right)  3. Select Cookie Whitelist", "long");
+  toast("1. 在 Firefox 中打开要加入白名单的网站  2. 打开主菜单 (上右方)  3. 选择 Cookie 白名单", "long");
 }
 
 exports.showStatistics = function(stats, numCookiesRemoved, numTrackingCookiesRemoved, numScopesRemoved, numTrackingScopesRemoved, dateLoaded) {
@@ -149,9 +149,9 @@ exports.actionNotification = function(removed, removedTracking, removedScopes, r
 
   // build title
   var title = "";
-  if (trackers) title = title + "Trackers, ";
+  if (trackers) title = title + "跟踪者, ";
   if (cookies) title = title + "Cookies, ";
-  if (localStorage) title = title + "LocalStorage, ";
+  if (localStorage) title = title + "本地存储, ";
   title = title.substring(0, title.length - 2);
 
   // build message
@@ -173,7 +173,7 @@ exports.actionNotification = function(removed, removedTracking, removedScopes, r
     }
     if (i < n - 1) msg = msg + ", ";
   }
-  if (n < d.length) msg = msg + " and " + (d.length - n) + " more domains";
+  if (n < d.length) msg = msg + " 和 " + (d.length - n) + " 更多域名";
   msg = msg + " " + action + ".";
 
   // display results
@@ -192,20 +192,20 @@ function handleWhitelistClicked() {
   if (checkDomainWhitelist(host, false)) {
     // remove
     host = idnService.convertToDisplayIDN(removeDomainWhitelist(host), ascii);
-    toast(host + " is no longer whitelisted for cookies.");
+    toast(host + " 已不在 cookie 白名单中。");
   } else {
     // add
     host = idnService.convertToDisplayIDN(setDomainWhitelist(host, Ci.nsICookiePermission.ACCESS_ALLOW), ascii);
-    toast(host + " is now whitelisted for cookies.");
+    toast(host + " 已加入 cookie 白名单。");
   }
 }
 
 function handleDisarmClicked() {
   armed = setArmed(!armed);
   if (armed) {
-    toast("SDC is no longer suspended.", "long");
+    toast("SDC 不再暂停。", "long");
   } else {
-    toast("SDC is now suspended.", "long");
+    toast("SDC 已经暂停。", "long");
   }
 }
 

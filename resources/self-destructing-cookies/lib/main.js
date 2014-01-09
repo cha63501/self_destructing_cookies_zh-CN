@@ -117,8 +117,8 @@ exports.main = function() {
       var addon = addons[i].split(":")[0];
       if (INCOMPATIBLE[addon]) {
         console.warn("incompatible add-on found: " + INCOMPATIBLE[addon]);
-        GUI.notify("Self-Destructing Cookies was NOT enabled because a conflicting add-on was detected: " + INCOMPATIBLE[addon], 1);
-        GUI.notify("Self-Destructing Cookies was NOT enabled because a conflicting add-on was detected: " + INCOMPATIBLE[addon], 2);
+        GUI.notify("自毁 cookie 无法启用，因为检查到冲突的组件: " + INCOMPATIBLE[addon], 1);
+        GUI.notify("自毁 cookie 无法启用，因为检查到冲突的组件: " + INCOMPATIBLE[addon], 2);
         return;
       }
     }
@@ -373,7 +373,7 @@ function setDomainWhitelist(domain, value) {
 
   // warn the user if site permissions will be cleared
   if (prefservice.get("privacy.sanitize.sanitizeOnShutdown", false) && prefservice.get("privacy.clearOnShutdown.siteSettings", false)) {
-    GUI.notify("Warning: You have set Firefox's privacy settings to clear Site Permissions on shutdown. Your whitelist will not persist between restarts.", 2);
+    GUI.notify("警告: 您的 Firefox 隐私设置已为关闭时清理网站权限。所以您的白名单设置在重启后会丢失。", 2);
   }
 
   return domain;
@@ -402,7 +402,7 @@ function setArmed(state) {
   // nothing to do or still in the process of arming?
   if (state == armed) return armed;
   if (arming) {
-    GUI.notify("Still resuming, please wait.", 1);
+    GUI.notify("正在恢复，请稍候。", 1);
     return armed;
   }
 
@@ -432,7 +432,7 @@ function setArmed(state) {
 function disarmAndUndelete() {
   // is this feature even enabled?
   if (!prefs.prefs.undelete && !newInstall) {
-    GUI.notify("Please enable this feature in the add-on's settings first.", 1);
+    GUI.notify("请现在组件设置中启用此功能。", 1);
     return armed;
   }
 
@@ -444,7 +444,7 @@ function disarmAndUndelete() {
 
   // display our results
   if (undeleted.length == 0) {
-    GUI.notify("No more undeletes are possible. Still suspended.", 1);
+    GUI.notify("没有更多可恢复。正在暂停。", 1);
   } else {
     GUI.actionNotification(undeleted, [], [], [], "undeleted. " + undelete.stepsLeft() + " more step(s) available", 1);
   }
@@ -461,7 +461,7 @@ function handleIdle(topic, subject, data) {
           cacheService.evictEntries(Ci.nsICache.STORE_IN_MEMORY);
           cacheService.evictEntries(Ci.nsICache.STORE_ON_DISK);
           // TODO STORE_OFFLINE?
-          GUI.notify("Your browser cache self-destructed.", prefs.prefs.displayNotification ? 1 : 0);
+          GUI.notify("浏览器缓存已清空。", prefs.prefs.displayNotification ? 1 : 0);
         } catch (e) {
           console.exception(e);
         }

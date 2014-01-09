@@ -1,7 +1,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <html>
     <head>
-        <title>Self-Destructing Cookies -- Survival Guide</title>
+        <title>自毁 Cookie -- 生存指南</title>
         <style type="text/css" media="all">
             body { background-color: white;
                    color: black;
@@ -15,45 +15,45 @@
         </style>
     </head>
     <body>
-    <h1>Self-Destructing Cookies - Survival Guide</h1>
+    <h1>自毁 Cookie - 生存指南</h1>
 
-    <h3>The First Run, or: What Happened To My Cookies?</h3>
+    <h3>第一次运行/我的Cookie怎么啦？</h3>
     <div>
-      If you read this, all of your cookies that are not currently in use just self-destructed.
-      <b>Don't panic.</b> You can undo this if you prefer to keep them for now.
+      如果您正在阅读此文，不再使用的 cookie 将会自毁。
+      <b>不要恐慌。</b> 你可以使用撤销来保留 cookie。
       Here's how:
       <ol>
-        <li>Wait until no more removal-notifications appear. If you are currently using another add-on that re-adds certain cookies when they are removed (e.g. Beef Taco or TrackerBlock), you need to disable it.</li>
-        <li>Locate SDC's icon in your add-on bar. It's probably near the bottom of your browser and looks like this: <img src="toolbar-r.png"/> If you can't find it, you might have to enable the add-on bar via the <b>View&gt;Toolbars&gt;Add-On Bar</b> menu, or by pressing <b>CTRL-/</b></li>
+        <li>等到没有删除通知弹出后。如果您正在使用其他能恢复已删除cookie的组件（例如：Beef Taco or TrackerBlock），您需要禁用它。</li>
+        <li>在附加组件栏上找到 SDC 的图标。它可能在您浏览器的底部，像这样: <img src="toolbar-r.png"/> 如果您找不到它，您可以通过 <b>查看&gt;工具栏&gt;附加组件栏</b> 启用。或者按 <b>CTRL-/</b></li>
 
-        <li>Click the icon. A menu will pop up. Click <b>Undelete cookies and suspend</b> in this menu.
-        <li>You will get a notification indicating that your cookies have been restored. SDC's icon will also turn grey. This tells you, that the add-on has suspended its operation. SDC will not remove any cookies in this state.</li>
-        <li>Undeletes happen in batches. If you had a lot of cookies, you might need to restore more batches. Click SDC's icon <img src="toolbar-w.png"/> again. Select <b>Undelete (more) cookies</b> from the menu. Repeat this until you get a notification stating that <b>No more undeletes are possible</b>.</li>
+        <li>点击图标。会弹出菜单。点击菜单中的<b>撤销删除 cookie 并暂停</b>。
+        <li>您会收到一个通知指示您的 cookie 已恢复。SDC 图标会变灰。这告诉您，组件已暂停工作。SDC 在此状态不会删除任何 cookie。</li>
+        <li>批量恢复。如果您有一大堆 cookie，您应该需要恢复更多组。再点击 SDC 图标 <img src="toolbar-w.png"/> 。从菜单中选择 <b>恢复更多已删除的 cookie</b> 。重复此操作直到出现一个通知提示 <b>没有更多可恢复的已删除</b>。</li>
         <li>All of your cookies are now restored, but they will be removed again as soon as SDC resumes (e.g. by clicking <b>Resume operation</b> in SDC's menu or restarting Firefox). To get around this, you need to tell SDC which cookies it should keep without an open tab. Refer to the next section for more information on this.</li>
         <li>The undelete feature that you just used is very handy, but it is not enabled by default due to security considerations. An exception was made for you, because this is the first time you have run this add-on. You should enable it in the add-on's preferences if you'd like to keep using it. Also consider enabling SDC's cache cleaning feature from there.</li>
         <li>You should now whitelist all the sites whose cookies you would like to keep, and then have SDC resume. Alternatively, if you feel SDC plays fast and loose with your cookies, you could now safely uninstall it as well.</li>
       </ol>
     </div>
 
-    <h3>The Next Steps</h3>
+    <h3>下一步</h3>
     <div>
       Add trustworthy sites to your whitelist as described below. Sites on your whitelist can recognize you when you return, so you won't have to log in every time you visit. Also check out SDC's preferences: you can reach them from the add-on manager (CTRL-SHIFT-a, or via the Tools&gt;Add-ons menu). Enabling the undelete feature and automatic cache cleaning is highly recommended. You can also disable the removal notifications from there if you find them too distracting.
     </div>
 
-    <h3>Whitelisting Sites for Cookies</h3>
+    <h3>Cookie的网站白名单</h3>
     <div>
-      The easy way:
+      最容易的办法：
       <ol>
-        <li>Open the site to be whitelisted in Firefox.</li>
-        <li>Click SDC's icon <img src="toolbar-r.png"/> in your add-on bar.</li>
-        <li>Select one of the three policy options presented to you.</li>
+        <li>在Firefox中打开将加入白名单的网站。</li>
+        <li>点击工具栏上的 SDC 图标 <img src="toolbar-r.png"/>。</li>
+        <li>在展现的三个策略选项中选择其中一项。</li>
       </ol>
 
-      If you have special requirements (e.g. you only want to whitelist certain subdomains), or can't open the site you want to whitelist in the browser, you can also manually add entries:
+      如果您有特殊的需求 (例如您需要把域名加入白名单), 或者无法要加入白名单的网站，您可以手工添加: 
       <ol>
-        <li>Open SDC's preferences page.</li>
-        <li>Click <b>Edit Whitelist</b>.</li>
-        <li>Add your domains to the list. You should normally use the base domain here (e.g. example.com, not www.example.com).</li>
+        <li>打开 SDC 设置页。</li>
+        <li>点击 <b>编辑白名单</b>。</li>
+        <li>添加您的域名到列表中。通常情况下您应该在此添加根域名 (例如 example.com, 而不是 www.example.com).</li>
       </ol>
     </div>
 </html>

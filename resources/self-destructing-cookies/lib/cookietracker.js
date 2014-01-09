@@ -281,7 +281,7 @@ exports.CookieTracker.prototype.collectStatistics = function() {
         scopes: countProps(this.cookieHash, "l"),
         domains: this.domainTree.countDomains(),
         expiring: countProps(this.expirationHandles),
-        toString: function(){ return "Domains: "+this.domains+"  Cookies: "+this.cookies+"  Scopes: "+this.scopes+"  Expiring: "+this.expiring }
+        toString: function(){ return "域名: "+this.domains+"  Cookies: "+this.cookies+"  域: "+this.scopes+"  过期: "+this.expiring }
     }
 
     return stats;
